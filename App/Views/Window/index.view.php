@@ -26,7 +26,7 @@
             <?php if ($auth->isLogged()) { ?>
                 <div class="row">
                     <div class="col">
-                        <a href="?c=window&a=create" class="btn btn-success">Pridať nový príspevok</a>
+                        <a href="?c=window&a=create" class="btn btn-success">Pridať nový podnet</a>
                     </div>
                 </div>
             <?php } ?>
