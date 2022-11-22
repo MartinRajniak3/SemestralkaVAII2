@@ -8,20 +8,20 @@
 </head>
 <body>
 <div class="hlavicka">
-    <h1>Pochváľte sa</h1>
+    <h1>Skrinka podnetov</h1>
 </div>
 <div class="riadok">
     <div class="column lavy" style="background-color: #052aad;">
         <div>
             <p><a href="../HlavnaStranka.html">Domov</a></p>
             <p> <a href="../Podstranky/Navody.html">Návody</a></p>
-            <p> <a href="index.php?c=window">Pochváľte sa</a></p>
+            <p> <a href="index.php?c=window">Skrinka podnetov</a></p>
             <p><a href="../Podstranky/TypyNaServery.html">Typy na servery</a></p>
             <p><a href="../Podstranky/UzitocneLinky.html">Užitočné linky</a></p>
             <p><a href="../Podstranky/OAutorovi.html">O Autorovi</a></p>
         </div>
     </div>
-    <div class="column pravy" style= "background-color: antiquewhite;">
+    <div class="column pravy" style="background-image: url('../../../Obrazky/minecraft-pozadie.jpg');">
         <div class="container-fluid">
             <?php if ($auth->isLogged()) { ?>
                 <div class="row">
@@ -34,9 +34,6 @@
                 <?php foreach ($data['data'] as $window) { ?>
                     <div class="col-xl-3 col-md-4 col-sm-6">
                         <div class="card my-3">
-                            <?php if ($window->getPicture()) { ?>
-                                <img src="<?= $window->getPicture() ?>" class="card-img-top" alt="...">
-                            <?php } ?>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <?= $window->getTitle() ?>
@@ -45,11 +42,11 @@
                                     <?= $window->getText() ?>
                                 </p>
                                 <?php if ($auth->isLogged()) { ?>
-                                    <a href="?c=window&a=like&id=<?= $window->getId() ?>" class="btn btn-primary"><?= count($window->getLikes()) ?> Páči sa mi</a>
+                                    <a href="?c=window&a=like&id=<?= $window->getId() ?>" class="btn btn-primary"><?= count($window->getLikes()) ?> Počet hlasov</a>
                                     <a href="?c=window&a=edit&id=<?= $window->getId() ?>" class="btn btn-warning">Upraviť</a>
                                     <a href="?c=window&a=delete&id=<?= $window->getId() ?>" class="btn btn-danger">Zmazať</a>
                                 <?php } else { ?>
-                                    <button class="btn btn-secondary"><?= count($window->getLikes()) ?> Páči sa mi</button>
+                                    <button class="btn btn-secondary"><?= count($window->getLikes()) ?> Počet hlasov</button>
                                 <?php } ?>
                             </div>
                         </div>

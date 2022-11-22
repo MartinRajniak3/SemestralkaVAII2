@@ -8,7 +8,6 @@ class Window extends Model
     protected int $id = 0;
     protected string $title = "";
     protected string $text = "";
-    protected ?string $picture = null;
 
     public function delete()
     {
@@ -74,21 +73,6 @@ class Window extends Model
         $this->text = $text;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    /**
-     * @param string|null $picture
-     */
-    public function setPicture(?string $picture): void
-    {
-        $this->picture = $picture;
-    }
 
 
 }

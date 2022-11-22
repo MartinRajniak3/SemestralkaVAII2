@@ -103,36 +103,13 @@ class WindowController extends AControllerBase
     {
         $id = $this->request()->getValue('id');
         $window = ($id ? Window::getOne($id) : new Window());
-        $oldPicture = $window->getPicture();
 
         $window->setTitle($this->request()->getValue("title"));
         $window->setText($this->request()->getValue("text"));
-        $window->setPicture($this->processUploadedFile($window));
-        if (!is_null($oldPicture) && is_null($window->getPicture())) {
-            unlink($oldPicture);
-        }
         $window->save();
 
         return $this->redirect("?c=window");
     }
 
-    /**
-     * @param $window
-     * @return string|null
-     */
-    private function processUploadedFile(Window $window)
-    {
-        $picture = $this->request()->getFiles()['picture'];
-        if (!is_null($picture) && $picture['error'] == UPLOAD_ERR_OK) {
-            $targetFile = "public" . DIRECTORY_SEPARATOR . "Obrazky" . DIRECTORY_SEPARATOR . time() . "_" . $picture['name'];
-            if (move_uploaded_file($picture["tmp_name"], $targetFile)) {
-                if ($window->getId() && $window->getPicture()) {
-                    unlink($window->getPicture());
-                }
-                return $targetFile;
-            }
-        }
-        return null;
-    }
 
 }
