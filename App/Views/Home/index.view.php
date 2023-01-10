@@ -1,29 +1,34 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col mt-5">
-            <div class="text-center">
-                <h2>Vaííčko MVC FW</h2>
-                <img src="public/images/vaiicko_logo.png">
-                <p>
-                    Gratulujeme vám, úspešne sa vám podarilo nainštalovať a spustiť framework <strong>Vaííčko</strong> <?= \App\Config\Configuration::FW_VERSION ?>!<br>
-                    Dúfame, že sa Vám pomocou totho frameworku vytvoríte nejakú skvelú aplikáciu.<br>
-                </p>
-                <p>
-                    Tento jednoduchý framework bol vytvorený pre lepšie pochopenie architektúry MVC.<br>
-                    Je určený pre študentov predmetu <em>vývoj aplikcií pre internet a intranet</em>, ale nielen im.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col text-center">
-            <h4>Autori</h4>
-            <div>
-                <a href="mailto:Patrik.Hrkut@fri.uniza.sk">Ing. Patrik Hrkút, PhD.</a><br>
-                <a href="mailto:Michal.Duracik@fri.uniza.sk">Ing. Michal Ďuračík, PhD.</a><br>
-                <a href="mailto:Matej.Mesko@fri.uniza.sk">Ing. Matej Meško, PhD.</a><br><br>
-                &copy; 2020-2022 Fakulta riadenia a informatiky, Katedra softvérových technológií
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Návody do Minecraftu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../public/css/csska.css">
+</head>
+<body>
+<div class="hlavicka">
+    <div class="HlavickaText">
+        <h1>Návody do Minecraftu</h1>
     </div>
 </div>
+<div class="riadok">
+    <div class="column lavy brick" >
+        <div>
+            <p><a class="btn btn-success" href="/index.php">Domov</a></p>
+            <p><a class="btn btn-success" href="Navody.html">Návody</a></p>
+            <p><a class="btn btn-success" href="/index.php?c=window">Skrinka podnetov</a></p>
+            <p><a class="btn btn-success" href="/index.php?c=link">Užitočné odkazy</a></p>
+            <p><a class="btn btn-success" href="?c=home&a=contact">O Autorovi</a></p>
+        </div>
+    </div>
+    <div class="column pravy cottage" >
+        <div class="nadpis">
+            <p>Webová stránka na tipy, triky a návody do hry Minecraft.</p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+

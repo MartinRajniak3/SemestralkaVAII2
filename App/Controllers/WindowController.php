@@ -51,7 +51,7 @@ class WindowController extends AControllerBase
         } else {
             throw new \Exception("One post can't have more than one like from the same user.");
         }
-        return $this->redirect("?c=posts");
+        return $this->redirect("?c=window");
     }
 
     /**
@@ -62,9 +62,7 @@ class WindowController extends AControllerBase
     {
         $window = Window::getOne($this->request()->getValue('id'));
 
-        if ($window->getPicture()) {
-            unlink($window->getPicture());
-        }
+
         $window->delete();
 
         return $this->redirect("?c=window");

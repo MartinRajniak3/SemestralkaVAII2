@@ -1,21 +1,38 @@
 <?php /** @var Array $data */ ?>
-<div class="row">
-    <div class="col">
-        <h3>Fakulta riadenia a informatiky</h3>
-        <strong>Adresa</strong>: Univerzitná 8215/1, 010 26 Žilina<br>
-        <strong>Tel. číslo</strong>: +421/41 513 4121<br>
-
-        <strong>GPS</strong>: 49°12'6,4"N 18°45'42,6"E
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>O Autorovi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../public/css/csska.css">
+</head>
+<body>
+<div class="hlavicka">
+    <div class="HlavickaText">
+        <h1>O Autorovi</h1>
     </div>
 </div>
-<div class="row mt-3">
-    <div class="col">
-        <iframe width="100%" height="300"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=18.747396469116214%2C49.193792384417996%2C18.776578903198246%2C49.210336337994846&amp;layer=mapnik&amp;marker=49.202065053033984%2C18.761987686157227"></iframe>
+<div class="riadok">
+    <div class="column lavy brick">
+        <div>
+            <p><a class="btn btn-success" href="/index.php">Domov</a></p>
+            <p><a class="btn btn-success" href="Navody.html">Návody</a></p>
+            <p><a class="btn btn-success" href="/index.php?c=window">Skrinka podnetov</a></p>
+            <p><a class="btn btn-success" href="/index.php?c=link">Užitočné odkazy</a></p>
+            <p><a class="btn btn-success" href="?c=home&a=contact">O Autorovi</a></p>
+        </div>
+    </div>
+    <div class="column pravy orange" >
+        <p class="nadpis1">Kto som?</p>
+        <p class="stylTextu">Som študentom FRI uniza, tretieho ročníka bakalárskeho štúdia. Vo svojom voľnom čase hrám počítačove hry, a Minecraft je hra ktorú hrám už vyše 10 rokov. Nasledujúce fotky sú len malé projetky, ktoré som buď staval ja sám alebo som bol ich súčasťou.</p>
+        <img class="StylObrazka2" src="../../../Obrazky/P1.png" alt= " 1. obrázok">
+        <img class="StylObrazka1" src="../../../Obrazky/P2.png" alt= " 2. obrázok">
+        <img class="StylObrazka2" src="../../../Obrazky/P3.png" alt= " 3. obrázok">
+        <img class="StylObrazka1" src="../../../Obrazky/P4.png" alt= " 4. obrázok">
+        <img class="StylObrazka2" src="../../../Obrazky/P5.png" alt= " 5. obrázok">
+        <img class="StylObrazka1" src="../../../Obrazky/P6.png" alt= " 6. obrázok">
     </div>
 </div>
-<div class="row mt-3">
-    <div class="col">
-        <a href="?c=home">Späť na hlavnú stránku</a>
-    </div>
-</div>
+</body>
+</html>

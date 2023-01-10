@@ -4,24 +4,25 @@
 /** @var \App\Models\Window $window */
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../csska.css">
+<link rel="stylesheet" href="../../../public/css/csska.css">
 </head>
 <body>
 <div class="hlavicka">
-    <h1>Skrinka podnetov</h1>
+    <div class="HlavickaText">
+        <h1>Skrinka podnetov</h1>
+    </div>
 </div>
 <div class="riadok">
-    <div class="column lavy" style="background-color: #052aad;">
+    <div class="column lavy brick" >
         <div>
-            <p><a href="../HlavnaStranka.html">Domov</a></p>
-            <p> <a href="../Podstranky/Navody.html">Návody</a></p>
-            <p> <a href="index.php?c=window">Skrinka podnetov</a></p>
-            <p><a href="../Podstranky/TypyNaServery.html">Typy na servery</a></p>
-            <p><a href="../Podstranky/UzitocneLinky.html">Užitočné linky</a></p>
-            <p><a href="../Podstranky/OAutorovi.html">O Autorovi</a></p>
+            <p><a class="btn btn-success" href="/index.php">Domov</a></p>
+            <p><a class="btn btn-success" href="Navody.html">Návody</a></p>
+            <p><a class="btn btn-success" href="/index.php?c=window">Skrinka podnetov</a></p>
+            <p><a class="btn btn-success" href="/index.php?c=link">Užitočné odkazy</a></p>
+            <p><a class="btn btn-success" href="?c=home&a=contact">O Autorovi</a></p>
         </div>
     </div>
-    <div class="column pravy" style="background-image: url('../../../Obrazky/minecraft-pozadie.jpg');">
+    <div class="column pravy wood" >
         <div class="container-fluid">
             <?php if ($auth->isLogged()) { ?>
                 <div class="row">
