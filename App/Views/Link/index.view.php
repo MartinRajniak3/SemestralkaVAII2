@@ -40,7 +40,7 @@
                 <div class="row stylLink">
                     <?php foreach ($data['data'] as $link) { ?>
                         <p  class="nadpis1"><?= $link->getPopis() ?></p>
-                        <p  class="stylTextu1"><a href="<?= $link->getOdkaz() ?>"><?= $link->getOdkaz() ?></a></p>
+                        <p  class="stylTextu1"><a class="btn sign signText stylLink1" href="<?= $link->getOdkaz() ?>">Navštíviť stránku</a></p>
                         <?php if ($auth->isLogged()) { ?>
                             <a href="?c=link&a=delete&id=<?= $link->getId() ?>" class="btn btn-danger">^Zmazať^</a>
                         <?php } else { ?>

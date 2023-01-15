@@ -3,8 +3,11 @@
 /** @var \App\Core\IAuthenticator $auth */
 /** @var \App\Models\Window $window */
 ?>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../../../public/css/csska.css">
+<head>
+    <meta charset="utf-8">
+    <title>Návody do Minecraftu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../public/css/csska.css">
 </head>
 <body>
 <div class="hlavicka">
@@ -57,5 +60,7 @@
         </div>
 
     </div>
+
 </div>
+
 </body>

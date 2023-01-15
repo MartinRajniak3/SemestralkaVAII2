@@ -15,11 +15,7 @@ class WindowController extends AControllerBase
      */
     public function authorize($action)
     {
-        if ($action == 'index') {
-            return true;
-        } else {
-            return $this->app->getAuth()->isLogged();
-        }
+        return true;
     }
 
     /**

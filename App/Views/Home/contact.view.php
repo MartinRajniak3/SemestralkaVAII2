@@ -23,15 +23,17 @@
             <p><a class="btn btn-success" href="?c=home&a=contact">O Autorovi</a></p>
         </div>
     </div>
-    <div class="column pravy orange" >
-        <p class="nadpis1">Kto som?</p>
-        <p class="stylTextu">Som študentom FRI uniza, tretieho ročníka bakalárskeho štúdia. Vo svojom voľnom čase hrám počítačove hry, a Minecraft je hra ktorú hrám už vyše 10 rokov. Nasledujúce fotky sú len malé projetky, ktoré som buď staval ja sám alebo som bol ich súčasťou.</p>
-        <img class="StylObrazka2" src="../../../Obrazky/P1.png" alt= " 1. obrázok">
-        <img class="StylObrazka1" src="../../../Obrazky/P2.png" alt= " 2. obrázok">
-        <img class="StylObrazka2" src="../../../Obrazky/P3.png" alt= " 3. obrázok">
-        <img class="StylObrazka1" src="../../../Obrazky/P4.png" alt= " 4. obrázok">
-        <img class="StylObrazka2" src="../../../Obrazky/P5.png" alt= " 5. obrázok">
-        <img class="StylObrazka1" src="../../../Obrazky/P6.png" alt= " 6. obrázok">
+    <div class="column pravy redWall" >
+        <div class="stylLink">
+            <p class="nadpis1">Kto som?</p>
+            <p class="stylTextu" >Som študentom FRI uniza, tretieho ročníka bakalárskeho štúdia. Vo svojom voľnom čase hrám počítačove hry, a Minecraft je hra ktorú hrám už vyše 10 rokov. Nasledujúce fotky sú len malé projetky, ktoré som buď staval ja sám alebo som bol ich súčasťou.</p>
+        </div>
+        <img class="StylObrazka2" src="../../../public/images/Obrazky/P1.png" alt= " 1. obrázok">
+        <img class="StylObrazka1" src="../../../public/images/Obrazky/P2.png" alt= " 2. obrázok">
+        <img class="StylObrazka2" src="../../../public/images/Obrazky/P3.png" alt= " 3. obrázok">
+        <img class="StylObrazka1" src="../../../public/images/Obrazky/P4.png" alt= " 4. obrázok">
+        <img class="StylObrazka2" src="../../../public/images/Obrazky/P5.png" alt= " 5. obrázok">
+        <img class="StylObrazka1" src="../../../public/images/Obrazky/P6.png" alt= " 6. obrázok">
     </div>
 </div>
 </body>
