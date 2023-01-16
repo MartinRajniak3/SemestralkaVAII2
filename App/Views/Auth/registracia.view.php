@@ -7,11 +7,11 @@ $layout = 'auth';
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Prihlásenie</h5>
+                    <h5 class="card-title text-center">Registrácia</h5>
                     <div class="text-center text-danger mb-3">
                         <?= @$data['message'] ?>
                     </div>
-                    <form class="form-signin" method="post" action="<?= \App\Config\Configuration::LOGIN_URL ?>">
+                    <form class="form-signin" method="post" action="<?= \App\Config\Configuration::REGISTRACIA_URL?>">
                         <div class="form-label-group mb-3">
                             <input name="login" type="text" id="login" class="form-control" placeholder="Login"
                                    required autofocus>
@@ -22,13 +22,12 @@ $layout = 'auth';
                                    placeholder="Password" required>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary" type="submit" name="submit">Prihlásiť
+                            <button class="btn btn-primary" type="submit" name="submit">Registrovať
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="text-center"><a class="btn btn-primary" href="?c=auth&a=registracia">Registrácia</a></div>
     </div>
 </div>

@@ -8,6 +8,40 @@ class Window extends Model
     protected int $id = 0;
     protected string $title = "";
     protected string $text = "";
+    protected int $tvorca = 0;
+    protected int $stav = 0;
+
+    /**
+     * @return int
+     */
+    public function getStav(): int
+    {
+        return $this->stav;
+    }
+
+    /**
+     * @param int $stav
+     */
+    public function setStav(int $stav): void
+    {
+        $this->stav = $stav;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTvorca(): int
+    {
+        return $this->tvorca;
+    }
+
+    /**
+     * @param int $tvorca
+     */
+    public function setTvorca(int $tvorca): void
+    {
+        $this->tvorca = $tvorca;
+    }
 
     public function delete()
     {

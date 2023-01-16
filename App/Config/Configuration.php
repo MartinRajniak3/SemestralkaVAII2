@@ -20,6 +20,7 @@ class Configuration
     public const DB_PASS = 'dtb456';
 
     public const LOGIN_URL = '?c=auth&a=login';
+    public const REGISTRACIA_URL = '?c=auth&a=ulozUsera';
 
     public const ROOT_LAYOUT = 'root';
 

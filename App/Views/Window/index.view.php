@@ -17,12 +17,15 @@
 </div>
 <div class="riadok">
     <div class="column lavy brick" >
-        <div>
-            <p><a class="btn btn-success" href="/index.php">Domov</a></p>
-            <p><a class="btn btn-success" href="Navody.html">Návody</a></p>
-            <p><a class="btn btn-success" href="/index.php?c=window">Skrinka podnetov</a></p>
-            <p><a class="btn btn-success" href="/index.php?c=link">Užitočné odkazy</a></p>
-            <p><a class="btn btn-success" href="?c=home&a=contact">O Autorovi</a></p>
+        <div class="text-center">
+            <p><a class="btn sign signText" href="/index.php">Domov</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=tutorial">Návody</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=crafting">Craftingy</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=mob">Beštiár</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=window">Skrinka podnetov</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=link">Užitočné odkazy</a></p>
+            <p><a class="btn sign signText" href="?c=home&a=contact">O Autorovi</a></p>
+
         </div>
     </div>
     <div class="column pravy wood" >
@@ -37,20 +40,39 @@
             <div class="row">
                 <?php foreach ($data['data'] as $window) { ?>
                     <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="card my-3">
+                        <?php if ($window->getStav() == 1) { ?>
+                        <div class="card my-3 limecarpet">
+                        <?php } elseif ($window->getStav() == 2) { ?>
+                        <div class="card my-3 redcarpet">
+                        <?php } else { ?>
+                        <div class="card my-3 carpet">
+                        <?php } ?>
+                            <h5 class="card-header">
+                                <?= $window->getTitle() ?>
+                            </h5>
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <?= $window->getTitle() ?>
-                                </h5>
+                                <?php if ($auth->isLogged()) { ?>
+                                    <?php if ($auth->getLoggedUserId() == 1) { ?>
+                                        <p>
+                                            <a class="btn btn-info" href="?c=window&a=zmenStav&id=<?= $window->getId() ?>&stav=0">Základ</a>
+                                            <a class="btn btn-success" href="?c=window&a=zmenStav&id=<?= $window->getId() ?>&stav=1">Hotovo</a>
+                                            <a class="btn btn-danger" href="?c=window&a=zmenStav&id=<?= $window->getId() ?>&stav=2">Nebude</a>
+                                        </p>
+                                    <?php } ?>
+                                <?php } ?>
+
                                 <p class="card-text">
                                     <?= $window->getText() ?>
                                 </p>
+
                                 <?php if ($auth->isLogged()) { ?>
-                                    <a href="?c=window&a=like&id=<?= $window->getId() ?>" class="btn btn-primary"><?= count($window->getLikes()) ?> Počet hlasov</a>
-                                    <a href="?c=window&a=edit&id=<?= $window->getId() ?>" class="btn btn-warning">Upraviť</a>
-                                    <a href="?c=window&a=delete&id=<?= $window->getId() ?>" class="btn btn-danger">Zmazať</a>
+                                    <p><a href="?c=window&a=like&id=<?= $window->getId() ?>" class="btn btn-primary"><?= count($window->getLikes()) ?> Počet hlasov</a></p>
+                                    <?php if ($auth->getLoggedUserId() == 1 || $auth->getLoggedUserId() == $window->getTvorca()) { ?>
+                                        <p><a href="?c=window&a=edit&id=<?= $window->getId() ?>" class="btn btn-warning">Upraviť</a>
+                                        <a href="?c=window&a=delete&id=<?= $window->getId() ?>" class="btn btn-danger">Zmazať</a></p>
+                                    <?php } ?>
                                 <?php } else { ?>
-                                    <button class="btn btn-secondary"><?= count($window->getLikes()) ?> Počet hlasov</button>
+                                    <button class="btn btn-secondary"><?= count($window->getLikes()) ?> Hlas/Hlasy</button>
                                 <?php } ?>
                             </div>
                         </div>

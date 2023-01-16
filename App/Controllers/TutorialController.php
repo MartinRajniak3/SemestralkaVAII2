@@ -17,11 +17,7 @@ class TutorialController extends AControllerBase
      */
     public function authorize($action)
     {
-        if ($action == 'index') {
-            return true;
-        } else {
-            return $this->app->getAuth()->isLogged();
-        }
+        return true;
     }
     /**
      * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse

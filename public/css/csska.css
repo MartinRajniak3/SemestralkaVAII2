@@ -57,6 +57,13 @@ body {
 .carpet {
 	background-image: url('/public/images/Obrazky/carpet.png');
 }
+
+.redcarpet {
+	background-image: url('/public/images/Obrazky/redCarpet.png');
+}
+.limecarpet {
+	background-image: url('/public/images/Obrazky/limeCarpet.png');
+}
 .stone {
 	background-image: url('/public/images/Obrazky/stone.jpg');
 }

@@ -15,7 +15,11 @@ class WindowController extends AControllerBase
      */
     public function authorize($action)
     {
-        return true;
+        if ($action == 'index') {
+            return true;
+        } else {
+            return $this->app->getAuth()->isLogged();
+        }
     }
 
     /**
@@ -97,13 +101,21 @@ class WindowController extends AControllerBase
     {
         $id = $this->request()->getValue('id');
         $window = ($id ? Window::getOne($id) : new Window());
-
         $window->setTitle($this->request()->getValue("title"));
         $window->setText($this->request()->getValue("text"));
+        $window->setTvorca($this->app->getAuth()->getLoggedUserId());
         $window->save();
-
         return $this->redirect("?c=window");
     }
 
+    public function zmenStav()
+    {
+        $id = $this->request()->getValue('id');
+        $window = ($id ? Window::getOne($id) : new Window());
+        $val = $this->request()->getValue('stav');
+        $window->setStav(intval($val));
+        $window->save();
+        return $this->redirect("?c=window");
+    }
 
 }
