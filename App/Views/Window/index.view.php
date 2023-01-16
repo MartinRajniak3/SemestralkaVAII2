@@ -47,7 +47,7 @@
                         <?php } else { ?>
                         <div class="card my-3 carpet">
                         <?php } ?>
-                            <h5 class="card-header">
+                            <h5 class="card-header signText">
                                 <?= $window->getTitle() ?>
                             </h5>
                             <div class="card-body">
@@ -61,7 +61,7 @@
                                     <?php } ?>
                                 <?php } ?>
 
-                                <p class="card-text">
+                                <p class="card-text signText">
                                     <?= $window->getText() ?>
                                 </p>
 

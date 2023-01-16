@@ -28,6 +28,12 @@ body {
   flex: 1;
 }
 
+.column.in {
+	-webkit-flex: 2;
+	-ms-flex: 2;
+	flex: 2;
+}
+
 .kateg {
 	max-width: 100%;
 	display: block;
@@ -68,8 +74,6 @@ body {
 	background-image: url('/public/images/Obrazky/stone.jpg');
 }
 
-
-
 .column.pravy {
   -webkit-flex: 6;
   -ms-flex: 6;
@@ -106,8 +110,15 @@ body {
 }
 .signText{
 	font-weight: bold;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
+.margAPad {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+}
 
 .nadpis1 {
 	text-align: center;
@@ -129,6 +140,11 @@ body {
 
 .imgCrafting {
 	width: 100%;
+	display: block;
+}
+.imgDrop {
+	width: 50px;
+	display: block;
 }
 
 .StylObrazka {
@@ -208,3 +224,17 @@ body {
 	height: 20vh;
 	object-fit: cover;
 }
+
+.dropText{
+	font-weight: bold;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+}
+
+.rPad{
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+}
+
