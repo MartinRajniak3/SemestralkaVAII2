@@ -34,18 +34,22 @@
 		<div class="column pravy wood" >
             <div class="container-fluid">
                 <?php if ($auth->isLogged()) { ?>
-                    <div class="row">
-                        <div class="column">
-                            <a href="?c=link&a=create" class="btn btn-success">Pridať nový link</a>
+                    <?php if ($auth->getLoggedUserId() == 1) { ?>
+                        <div class="row">
+                            <div class="column">
+                                <a href="?c=link&a=create" class="btn btn-success">Pridať nový link</a>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 <?php } ?>
                 <div class="row stylLink">
                     <?php foreach ($data['data'] as $link) { ?>
                         <p  class="nadpis1"><?= $link->getPopis() ?></p>
                         <p  class="stylTextu1"><a class="btn sign signText stylLink1" href="<?= $link->getOdkaz() ?>">Navštíviť stránku</a></p>
                         <?php if ($auth->isLogged()) { ?>
-                            <a href="?c=link&a=delete&id=<?= $link->getId() ?>" class="btn btn-danger">^Zmazať^</a>
+                            <?php if ($auth->getLoggedUserId() == 1) { ?>
+                                <a href="?c=link&a=delete&id=<?= $link->getId() ?>" class="btn btn-danger">^Zmazať^</a>
+                            <?php } ?>
                         <?php } else { ?>
                             <p></p>
                         <?php } ?>

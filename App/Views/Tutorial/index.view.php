@@ -31,14 +31,16 @@ use App\Models\Kategoria;
 
         </div>
     </div>
-    <div class="column pravy wood" >
+    <div class="column pravy wood" id="start">
         <div class="container-fluid">
             <?php if ($auth->isLogged()) { ?>
-                <div class="riadok row">
-                    <div class="col">
-                        <a href="?c=tutorial&a=create" class="btn btn-success">Pridať návod</a>
+                <?php if ($auth->getLoggedUserId() == 1) { ?>
+                    <div class="riadok row">
+                        <div class="col">
+                            <a href="?c=tutorial&a=create" class="btn btn-success">Pridať návod</a>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             <?php } ?>
             <div class=" row card-deck text-center">
                 <?php foreach (Kategoria::getAll() as $kategoria) { ?>
@@ -55,18 +57,18 @@ use App\Models\Kategoria;
 
 
             <?php foreach (Kategoria::getAll() as $kategoria) { ?>
-                <h1 class="riadok row" id="<?= $kategoria->getId() ?>">
-                    <?= $kategoria->getNazov() ?>
-                </h1>
+                <div class="riadok row stylLink text-center" id="<?= $kategoria->getId() ?>">
+                    <h1><a href="#start" class="stylLink1"><?= $kategoria->getNazov() ?></a></h1>
+                </div>
                 <div class="riadok row">
                     <?php foreach ($data['data'] as $tutorial) { ?>
                         <?php if ($kategoria->getId() == $tutorial->getKategoriaMC()) { ?>
                             <div class="col-xl-4 col-md-4 col-sm-6">
                                 <div class="card my-3 text-center">
+                                    <h5 class="card-header">
+                                        <?= $tutorial->getNadpis() ?>
+                                    </h5>
                                     <div class="card-body">
-                                        <h5 class="card-title">
-                                            <?= $tutorial->getNadpis() ?>
-                                        </h5>
                                         <p class="card-text">
                                             <?= $tutorial->getPopis() ?>
                                         </p>

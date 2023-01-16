@@ -43,11 +43,13 @@ use App\Models\Letter;
             </div>
             <div class="riadok"><p></p></div>
             <?php if ($auth->isLogged()) { ?>
-                <div class="riadok row">
-                    <div class="col">
-                        <a href="?c=crafting&a=create" class="btn btn-success">Pridať crafting</a>
+                <?php if ($auth->getLoggedUserId() == 1) { ?>
+                    <div class="riadok row">
+                        <div class="col">
+                            <a href="?c=crafting&a=create" class="btn btn-success">Pridať crafting</a>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             <?php } ?>
 
 
@@ -67,8 +69,12 @@ use App\Models\Letter;
                                         <p>
                                             <h2><?= $crafting->getNazov()?></h2>
                                         <p>
-                                            <a href="?c=crafting&a=edit&id=<?= $crafting->getId()?>" class="btn btn-warning">Upravit</a>
-                                            <a href="?c=crafting&a=delete&id=<?= $crafting->getId()?>" class="btn btn-danger">Zmazat</a>
+                                            <?php if ($auth->isLogged()) { ?>
+                                                <?php if ($auth->getLoggedUserId() == 1) { ?>
+                                                    <a href="?c=crafting&a=edit&id=<?= $crafting->getId()?>" class="btn btn-warning">Upravit</a>
+                                                    <a href="?c=crafting&a=delete&id=<?= $crafting->getId()?>" class="btn btn-danger">Zmazat</a>
+                                                <?php } ?>
+                                            <?php } ?>
                                         </p>
                                     </div>
                                 </div>

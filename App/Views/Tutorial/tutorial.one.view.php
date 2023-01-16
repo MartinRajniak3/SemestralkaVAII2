@@ -24,22 +24,27 @@ $tutorial = $data['tutorial'];
 </div>
 <div class="riadok">
     <div class="column lavy brick" >
-        <div>
-            <p><a class="btn btn-success" href="/index.php">Domov</a></p>
-            <p><a class="btn btn-success" href="/index.php?c=tutorial"">Návody</a></p>
-            <p><a class="btn btn-success" href="/index.php?c=window">Skrinka podnetov</a></p>
-            <p><a class="btn btn-success" href="/index.php?c=link">Užitočné odkazy</a></p>
-            <p><a class="btn btn-success" href="?c=home&a=contact">O Autorovi</a></p>
+        <div class="text-center">
+            <p><a class="btn sign signText" href="/index.php">Domov</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=tutorial">Návody</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=crafting">Craftingy</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=mob">Beštiár</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=window">Skrinka podnetov</a></p>
+            <p><a class="btn sign signText" href="/index.php?c=link">Užitočné odkazy</a></p>
+            <p><a class="btn sign signText" href="?c=home&a=contact">O Autorovi</a></p>
+
         </div>
     </div>
     <div class="column pravy wood" >
         <div class="container-fluid">
             <?php if ($auth->isLogged()) { ?>
-                <div class="riadok">
-                    <div class="col">
-                        <a href="?c=tutorial&a=edit&id=<?= $tutorial->getId() ?>" class="btn btn-success">Uprav návod</a>
+                <?php if ($auth->getLoggedUserId() == 1) { ?>
+                    <div class="riadok">
+                        <div class="col">
+                            <a href="?c=tutorial&a=edit&id=<?= $tutorial->getId() ?>" class="btn btn-success">Uprav návod</a>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             <?php } ?>
             <h5 class="StylTextUvodny riadok">
                 <?= $tutorial->getNadpis() ?>
