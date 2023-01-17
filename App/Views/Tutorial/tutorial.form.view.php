@@ -10,7 +10,7 @@ $tutorial = $data['tutorial'];
 <div class="container">
     <div class="row>">
         <div class="col">
-            <h3>Editácia/pridanie Nápadu</h3>
+            <h3>Editácia/pridanie Navodu</h3>
             <form action="?c=tutorial&a=store" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="<?= $tutorial->getId() ?>" name="id">
                 <div class="mb-3">

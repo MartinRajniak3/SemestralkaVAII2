@@ -97,6 +97,7 @@ class Tutorial extends Model
     public function delete()
     {
         Model::getConnection()->beginTransaction();
+        Steptutorial::deleteSteps($this->id);
         parent::delete();
         Model::getConnection()->commit();
     }

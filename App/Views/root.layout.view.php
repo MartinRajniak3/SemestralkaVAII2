@@ -16,7 +16,6 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../public/css/styl.css">
     <link rel="stylesheet" href="../../public/css/csska.css">
-    <script src="../../public/js/script.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-light sky">

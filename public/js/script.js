@@ -1,63 +1,42 @@
-
 class Navod {
     constructor() {
-
-        document.getElementById("krokUp").onclick = () => this.step();
-        document.getElementById("krokDown").onclick = () => this.posunDown();
-
         this.reloadData();
         setInterval(() => {
             this.reloadData()
         }, 2000);
     }
-    async posunUp() {
-        krokIndex++;
-        this.step();
-    }
-
-    async posunDown() {
-        krokIndex--;
-        this.step();
-    }
 
     async step() {
-
-            let response = await fetch("?c=tutorial&a=steps");
-            let data = await response.json();
-            krokIndex = 0;
-            var popis = document.getElementById("popis");
-            var imag = document.getElementById("imag");
-            var htmlPopis = "";
-            var htmlImage = "";
-            var pocitadlo = 0;
-            var polePopis = [];
-            var poleImg= [];
-
-            data.forEach((ste) => {
-                polePopis[pocitadlo] = ste.popis;
-                poleImg[pocitadlo] = ste.image;
-                pocitadlo++;
-
-            });
-
-            if (pocitadlo !== 0) {
-                krokIndex = krokIndex % pocitadlo;
-                htmlPopis = `<p> ${polePopis[krokIndex]} <\p>`;
-                htmlImage = `<img class="StylObrazkaUvodny" src="${poleImg[krokIndex]}" alt="...">`;
+        let idTut = document.getElementById("idNavod").value;
+        let input = "?c=tutorial&a=steps&tut=" + idTut;
+        let response = await fetch(input);
+        let data = await response.json();
+        var kroky = document.getElementById("kroky");
+        var htmlKroky = "";
+        var pocitadlo = 0;
+        var htmlLogged = "";
+        var log = document.getElementById("logged").value;
+        var idTutorial = document.getElementById("idTut").value;
+        data.forEach((ste) => {
+            pocitadlo++;
+            if (log == 1) {
+                htmlLogged = ` <a class="btn btn-warning" href="?c=tutorial&a=editStep&id=${ste.id}&idTut=${idTutorial}">Upravit krok</a> 
+                                <a class="btn btn-danger" href="?c=tutorial&a=deleteStep&id=${ste.id}">Zmazat krok</a>`;
 
             }
-
-            popis.innerHTML = htmlPopis;
-            imag.innerHTML = htmlImage;
-
+            htmlKroky += `
+                    <p class="bordHoreADole"> 
+                        <div class="stylLink"><div class="stylLink1 text-center">${pocitadlo}. ${ste.popis}</div></div> 
+                        <img class="StylObrazkaUvodny" src="${ste.image}" alt="...">
+                        <div class="text-center">${htmlLogged}</div>
+                    <\p>`;
+        });
+        kroky.innerHTML = htmlKroky;
     }
-
     async reloadData() {
-        await this.step();
+        this.step();
     }
 }
-
-var krokIndex;
 var navd;
 document.addEventListener(
     'DOMContentLoaded', () => {

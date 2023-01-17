@@ -4,6 +4,7 @@
 /** @var \App\Models\Tutorial $tutorial */
 
 use App\Models\Kategoria;
+use App\Models\Steptutorial;
 use App\Models\Tutorial;
 
 /** @var Tutorial $tutorial */
@@ -32,7 +33,6 @@ $tutorial = $data['tutorial'];
             <p><a class="btn sign signText" href="/index.php?c=window">Skrinka podnetov</a></p>
             <p><a class="btn sign signText" href="/index.php?c=link">Užitočné odkazy</a></p>
             <p><a class="btn sign signText" href="?c=home&a=contact">O Autorovi</a></p>
-
         </div>
     </div>
     <div class="column pravy wood" >
@@ -41,32 +41,40 @@ $tutorial = $data['tutorial'];
                 <?php if ($auth->getLoggedUserId() == 1) { ?>
                     <div class="riadok">
                         <div class="col">
-                            <a href="?c=tutorial&a=edit&id=<?= $tutorial->getId() ?>" class="btn btn-success">Uprav návod</a>
+                            <a href="?c=tutorial&a=edit&id=<?= $tutorial->getId() ?>" class="btn btn-warning">Uprav návod</a>
+                            <a href="?c=tutorial&a=delete&id=<?= $tutorial->getId() ?>" class="btn btn-danger">Vymaž návod</a>
+                            <a href="?c=tutorial&a=createStep&idTut=<?= $tutorial->getId() ?>" class="btn btn-success">Pridaj krok</a>
                         </div>
                     </div>
                 <?php } ?>
             <?php } ?>
-            <h5 class="StylTextUvodny riadok">
-                <?= $tutorial->getNadpis() ?>
-            </h5>
-            <div class="riadok text-center">
-                <div class="column pravy text-center">
-                    <div>
-                        <button id="krokUp" class="btn btn-secondary btn-lg stone"><---</button>
-                        <button id="krokDown" class="btn btn-secondary btn-lg stone">---></button>
-                    </div>
+            <?php if ($auth->isLogged()) { ?>
+                <label hidden for="logged"></label>
+                <input hidden id="logged" value="<?= $auth->getLoggedUserId() ?>">
+                <label hidden for="idTut"></label>
+                <input hidden id="idTut" value="<?= $tutorial->getId() ?>">
+            <?php } ?>
+            <div  class="StylTextUvodny riadok text-center">
+                <div class="stylLink">
+                    <h2 class="stylLink1">
+                        <?= $tutorial->getNadpis() ?>
+                    </h2>
                 </div>
-            </div>
-            <div class="riadok">
-                <div>
-                    <p id="popis" class="StylTextUvodny">
-
-                    </p>
-                    <p id="imag">
-
-                    </p>
-
+                <label hidden for="idNavod"></label>
+                <input hidden type="text" id="idNavod" value="<?= $tutorial->getId() ?>">
+                <p>
+                    <div class="stylLink">
+                        <div class="stylLink1"><?= $tutorial->getPopis() ?></div>
+                    </div>
+                <p>
+                    <img class="imgCrafting" src="<?= $tutorial->getImage() ?>" alt=".">
                 </p>
+            </div>
+
+            <div class="riadok">
+                <div id="kroky" class="column pravy">
+
+                </div>
             </div>
         </div>
     </div>

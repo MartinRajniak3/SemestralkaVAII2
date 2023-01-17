@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
 use App\Models\Like;
 use App\Models\Window;
@@ -52,6 +53,23 @@ class WindowController extends AControllerBase
             throw new \Exception("One post can't have more than one like from the same user.");
         }
         return $this->redirect("?c=window");
+    }
+
+    public function windows() {
+        $windows = Window::getAll();
+        array_map(function ($wind) {
+            $wind->getLikes();
+        }, $windows);
+        return $this->json($windows);
+    }
+
+    public function storePodnet() : JsonResponse
+    {
+        $data = json_decode(file_get_contents('php://input'));
+        $step = new Window( $data->title, $data->text, $data->tvorca);
+        $step->save();
+
+        return $this->json('ok');
     }
 
     /**

@@ -45,7 +45,8 @@ class TutorialController extends AControllerBase
 
     public function steps() : JsonResponse
     {
-        $steps = Steptutorial::getAll('', [], 'id DESC');
+        $tut = $this->request()->getValue('tut');
+        $steps = Steptutorial::getAll("tutorial = ?", [$tut]);
         return $this->json($steps);
     }
 
@@ -81,6 +82,50 @@ class TutorialController extends AControllerBase
         );
     }
 
+    public function createStep()
+    {
+        return $this->html([
+            'step' => new Steptutorial(),
+            'tut' => $this->request()->getValue('idTut')
+        ],
+            'step.form'
+        );
+    }
+
+    public function editStep()
+    {
+        return $this->html([
+            'step' => Steptutorial::getOne($this->request()->getValue('id')),
+            'tut' => $this->request()->getValue('idTut')
+        ],
+            'step.form'
+        );
+    }
+
+    public function deleteStep()
+    {
+        $step = Steptutorial::getOne($this->request()->getValue('id'));
+        $step->delete();
+        return $this->redirect("?c=tutorial");
+    }
+
+    public function storeStep()
+    {
+        $id = $this->request()->getValue('id');
+        $step = ($id ? Steptutorial::getOne($id) : new Steptutorial());
+        $oldImage = $step->getImage();
+        $step->setPopis($this->request()->getValue("popis"));
+        $step->setImage($this->processUploadedFile($step));
+        $tutID = $this->request()->getValue("tutorialId");
+        $step->setTutorial(intval($tutID));
+        if (!is_null($oldImage) && is_null($step->getImage())) {
+            $step->setImage($oldImage);
+        }
+        $step->save();
+
+        return $this->redirect("?c=tutorial&a=one&id=");
+    }
+
     /**
      * @return \App\Core\Responses\RedirectResponse
      * @throws \Exception
@@ -104,7 +149,8 @@ class TutorialController extends AControllerBase
         return $this->redirect("?c=tutorial");
     }
 
-    private function processUploadedFile(Tutorial  $tutorial)
+
+    private function processUploadedFile($tutorial)
     {
         $image = $this->request()->getFiles()["image"];
         if (!is_null($image) && $image['error'] == UPLOAD_ERR_OK) {

@@ -10,7 +10,14 @@ class Window extends Model
     protected string $text = "";
     protected int $tvorca = 0;
     protected int $stav = 0;
+    protected int $likes = 0;
 
+    public function __construct(string $title = "", string $text = "", int $tvorca = 0)
+    {
+        $this->title = $title;
+        $this->text = $text;
+        $this->tvorca = $tvorca;
+    }
     /**
      * @return int
      */
@@ -56,6 +63,7 @@ class Window extends Model
         if (!$this->getId()) {
             return [];
         }
+        $this->likes = count(Like::getAll("window_id = ? ", [$this->getId()]));
         return Like::getAll("window_id = ? ", [$this->getId()]);
     }
 
