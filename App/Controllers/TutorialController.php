@@ -37,7 +37,6 @@ class TutorialController extends AControllerBase
     {
         $tutorial = Tutorial::getOne($this->request()->getValue('id'));
 
-
         $tutorial->delete();
 
         return $this->redirect("?c=tutorial");
@@ -123,7 +122,7 @@ class TutorialController extends AControllerBase
         }
         $step->save();
 
-        return $this->redirect("?c=tutorial&a=one&id=");
+        return $this->redirect("?c=tutorial");
     }
 
     /**

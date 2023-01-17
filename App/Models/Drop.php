@@ -75,4 +75,12 @@ class Drop extends Model
         $this->mob = $mob;
     }
 
+    public static function deleteDrops($mobId)
+    {
+        $drops = self::getAll("mob = ?", [$mobId]);
+        foreach ($drops as $drop) {
+            $drop->delete();
+        }
+    }
+
 }

@@ -11,6 +11,15 @@ class Mob extends Model
     protected string $popis = "";
     protected ?string $image = "";
 
+
+    public function delete()
+    {
+        Model::getConnection()->beginTransaction();
+        Drop::deleteDrops($this->id);
+        parent::delete();
+        Model::getConnection()->commit();
+    }
+
     /**
      * @return int
      */
