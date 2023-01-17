@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Core\Model;
-
+// Prebraté od doc. Ing. Patrik Hrkút, PhD.
 class Like extends Model
 {
     protected ?int $id;
